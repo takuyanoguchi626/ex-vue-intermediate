@@ -10,7 +10,7 @@
     </div>
     <div>
       <strong> 発足日<br /> </strong>
-      {{ team.getInauguration }}
+      {{ team.getInauguration() }}
     </div>
     <div>
       <strong> 歴史<br /> </strong>
@@ -36,7 +36,7 @@ export default class XXXComponent extends Vue {
    * Ex01.vueでクリックされたチームをストアから取得.
    *
    */
-  async created(): Promise<void> {
+  created(): void {
     const teamID = Number(this.$route.params.id);
     this.team = this.$store.getters.getTeamById(teamID);
   }

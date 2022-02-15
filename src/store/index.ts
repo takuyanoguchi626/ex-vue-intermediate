@@ -174,7 +174,7 @@ export default new Vuex.Store({
      */
     getTeamById(state) {
       return (id: number) => {
-        return state.teams.filter((team) => team.id === id);
+        return state.teams.filter((team) => team.id === id)[0];
       };
     },
   }, // end getters
