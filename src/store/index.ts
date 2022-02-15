@@ -177,6 +177,12 @@ export default new Vuex.Store({
         return state.teams.filter((team) => team.id === id)[0];
       };
     },
+
+    getHotelByPrice(state) {
+      return (price: number) => {
+        return state.hotels.filter((hotel) => hotel.price <= price);
+      };
+    },
   }, // end getters
 
   modules: {}, // end modules
