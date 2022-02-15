@@ -24,6 +24,11 @@ const routes: Array<RouteConfig> = [
     name: "",
     component: () => import("../views/Ex01.vue"),
   },
+  {
+    path: "/teamDetail:id",
+    name: "",
+    component: () => import("../views/teamDetail.vue"),
+  },
 ];
 
 const router = new VueRouter({

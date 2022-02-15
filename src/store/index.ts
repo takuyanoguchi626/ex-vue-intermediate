@@ -150,7 +150,16 @@ export default new Vuex.Store({
       new Clothe(50, "洋服", "ジャケット", 0, "黄", 15000, "L"),
     ],
   }, // end state
-  mutations: {},
-  actions: {},
-  modules: {},
+
+  actions: {}, // end actions
+
+  mutations: {}, // end mutations
+
+  getters: {
+    getTeams(state): Array<Team> {
+      return state.teams;
+    },
+  }, // end getters
+
+  modules: {}, // end modules
 });
