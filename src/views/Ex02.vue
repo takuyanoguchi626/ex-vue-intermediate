@@ -31,10 +31,15 @@ import { Hotel } from "@/type/hotel";
 import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class XXXComponent extends Vue {
+  //入力する金額
   private price = "";
+  //ホテル一覧
   private hotels = Array<Hotel>();
-  // new Hotel(0, "", "", "", "", 0, false);
 
+  /**
+   * 金額で絞り込んだホテル一覧を取得.
+   *
+   */
   setHotelsByPrice(): void {
     if (this.price === "") {
       this.hotels = this.$store.getters.getHotelByPrice(999999999);

@@ -167,7 +167,7 @@ export default new Vuex.Store({
     },
 
     /**
-     * チート一覧からチーム情報を取得する.
+     * チーム一覧からチーム情報を取得する.
      *
      * @param state ステート
      * @returns - チーム情報
@@ -178,6 +178,12 @@ export default new Vuex.Store({
       };
     },
 
+    /**
+     *ホテル一覧からホテル一覧を絞り込む関数を取得.
+     *
+     * @param state
+     * @returns - ホテル一覧を絞り込む関数
+     */
     getHotelByPrice(state) {
       return (price: number) => {
         return state.hotels.filter((hotel) => hotel.price <= price);
