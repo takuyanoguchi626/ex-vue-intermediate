@@ -10,7 +10,7 @@
     </div>
     <div>
       <strong> 発足日<br /> </strong>
-      {{ inauguration }}
+      {{ team.getInauguration }}
     </div>
     <div>
       <strong> 歴史<br /> </strong>
@@ -28,24 +28,23 @@
 <script lang="ts">
 import { Team } from "@/type/team";
 import { Component, Vue } from "vue-property-decorator";
-import { format } from "date-fns";
 @Component
 export default class XXXComponent extends Vue {
-  get teams(): Array<Team> {
-    // const teamId = this.$route.params.id;
-    // const teams = this.$store.getters.getTeams;
-    return this.$store.getters.getTeams;
-  }
+  private team = new Team(0, "", "", new Date(), "");
 
-  get team(): Team {
+  /**
+   * Ex01.vueでクリックされたチームをストアから取得.
+   *
+   */
+  async created(): Promise<void> {
     const teamID = Number(this.$route.params.id);
-    return this.teams.filter((team) => team.id === teamID)[0];
+    this.team = this.$store.getters.getTeamById(teamID);
   }
 
-  get inauguration(): string {
-    return format(this.team.inauguration, "yyyy年MM月dd日");
-  }
-
+  /**
+   * Ex01.vueに戻るボタン.
+   *
+   */
   back(): void {
     this.$router.push("/Ex01");
   }

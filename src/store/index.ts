@@ -156,8 +156,26 @@ export default new Vuex.Store({
   mutations: {}, // end mutations
 
   getters: {
+    /**
+     * チーム一覧を取得する.
+     *
+     * @param state ステート
+     * @returns - チーム一覧
+     */
     getTeams(state): Array<Team> {
       return state.teams;
+    },
+
+    /**
+     * チート一覧からチーム情報を取得する.
+     *
+     * @param state ステート
+     * @returns - チーム情報
+     */
+    getTeamById(state) {
+      return (id: number) => {
+        return state.teams.filter((team) => team.id === id);
+      };
     },
   }, // end getters
 

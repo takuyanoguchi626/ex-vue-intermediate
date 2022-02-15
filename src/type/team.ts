@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 export class Team {
   constructor(
     // id
@@ -11,6 +12,15 @@ export class Team {
     // 歴史
     private _history: string
   ) {}
+
+  /**
+   * チームの発足日の表示形式を整形して取得.
+   *
+   * @returns - 表示形式が整形されたチームの発足日
+   */
+  getInauguration(): string {
+    return format(this.inauguration, "yyyy年MM月dd日");
+  }
 
   public get id(): number {
     return this._id;
